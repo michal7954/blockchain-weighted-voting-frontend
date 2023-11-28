@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client";
+import "index.css";
+import App from "components/App/App";
+import { hooks as metaMaskHooks, metaMask } from "connectors/metaMask";
+import { Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
+import type { MetaMask } from "@web3-react/metamask";
+import { ThemeProvider, createTheme } from "@mui/material";
+
+const connectors: [MetaMask, Web3ReactHooks][] = [[metaMask, metaMaskHooks]];
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Web3ReactProvider connectors={connectors}>
+        <ThemeProvider theme={createTheme()}>
+            <App />
+        </ThemeProvider>
+    </Web3ReactProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
