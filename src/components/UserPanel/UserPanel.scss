@@ -23,7 +23,17 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+
+    &__chain-id {
+        background-color: var(--mui-palette-secondary-light);
+    }
+
+    &__account {
+        background-color: var(--mui-palette-primary-light);
+    }
 }
+
+
 
 .get-results,
 .results-chart {

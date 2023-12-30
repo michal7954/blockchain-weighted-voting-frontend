@@ -37,8 +37,8 @@ export default function UserPanel() {
         <div className="user-panel" ref={containerRef}>
             <div className="user-panel__content" ref={contentRef}>
                 <div className="wallet-info">
-                    <Chip label={`Chain ID: ${chainId}`} />
-                    <Chip label={`Account: ${account}`} />
+                    <Chip label={`Chain ID: ${chainId}`} className="wallet-info__chain-id" />
+                    <Chip label={`Account: ${account}`}  className="wallet-info__account" />
                 </div>
                 <div className="voting-status">
                     {votingLocked ? (
