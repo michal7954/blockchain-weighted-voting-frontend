@@ -1,12 +1,28 @@
 # Weighted voting system on Blockchain - front end
 
-This repository contains an implementation of a front-end web interface for weighted voting system as part of an engineering diploma project on "Application of blockchain technology in the implementation of a weighted voting system".
+This repository contains an implementation of a front-end web interface for a weighted voting system, developed as part of an engineering diploma project on "Application of Blockchain Technology in the Implementation of a Weighted Voting System." 
 
-The primary repository including implementation of smart contracts for this decentralized application is located in [blockchain-weighted-voting](https://github.com/michal7954/blockchain-weighted-voting). Please, refere there for more project-oriented details, example use cases and list of implemented features.
+The primary repository including implementation of smart contracts for this decentralized application is located in [blockchain-weighted-voting](https://github.com/michal7954/blockchain-weighted-voting). Please, refer there for more project-oriented details, example use cases and list of implemented features.
+
+The interface allows users to cast votes with dynamically calculated weights and view the status of an ongoing voting process in real-time. This app is designed exclusively for voters and observers, and does not include an administrator panel for managing the voting process.
 
 ## Code Highlights
-- **Main App Panel**: Aggregates all most important information about the voting. Uses bunch of custom hooks for handling specific parts of communication with the contract. [Link to UserPanel.txt](https://github.com/michal7954/blockchain-weighted-voting-frontend/blob/master/src/components/UserPanel/UserPanel.tsx)
-- **Cast a Vote**: Handler for casting a vote for selected option. [Link to the part of VotingOption.tsx](https://github.com/michal7954/blockchain-weighted-voting-frontend/blob/master/src/components/VotingOption/VotingOption.tsx#L23-L35)
+
+- **Initialize Voting Contract API**:  
+   Sets up the main connection to the voting smart contract using `ethers.js` and `web3-react` libraries for enabling seamless blockchain interaction. The contract instance is stored in `Zustand` (global state manager) for easy access across components. 
+   [Link to useContract.ts](https://github.com/michal7954/blockchain-weighted-voting-frontend/blob/master/src/infrastructure/useContract.ts)
+
+- **Retrieve Voting Locked Status**:  
+   Monitors whether voting is open or closed by querying the blockchain and listening for real-time events. This ensures that users see the current voting status immediately and accurately.  
+   [Link to useVotingLocked.ts](https://github.com/michal7954/blockchain-weighted-voting-frontend/blob/master/src/hooks/useVotingLocked.ts)
+
+- **Main App Panel**:  
+   Centralized panel that displays all essential voting information, including status, start/end times, and options. This panel uses custom hooks to manage specific contract interactions, providing a streamlined and responsive user experience.  
+   [Link to UserPanel.tsx](https://github.com/michal7954/blockchain-weighted-voting-frontend/blob/master/src/components/UserPanel/UserPanel.tsx)
+
+- **Cast a Vote**:  
+   Triggers the smart contract’s vote method, allowing users to cast their vote.  
+   [Link to VotingOption.tsx](https://github.com/michal7954/blockchain-weighted-voting-frontend/blob/master/src/components/VotingOption/VotingOption.tsx#L23-L35)
 
 ## Graphical Interface
 From a voter perspective there are four phases of a voting process.
