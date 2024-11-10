@@ -28,10 +28,6 @@ export default function UserPanel() {
     const results = useVotingResults(votingTimes[1], votingStatus);
     const votingRecords = useVotingRecords(votingOptions, results);
     const { containerRef, contentRef } = useDynamicHeightChange();
- 
-    useEffect(() => {
-        // console.log(votingStatus);
-    }, [votingStatus]);
 
     return (
         <div className="user-panel" ref={containerRef}>
