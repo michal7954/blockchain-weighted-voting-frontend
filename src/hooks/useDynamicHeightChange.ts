@@ -10,7 +10,6 @@ export default function useDynamicHeightChange() {
 
         const contentHeight = contentRef.current.clientHeight;
         containerRef.current.style.height = `${contentHeight}px`;
-        // console.log(contentHeight);
     });
 
     return { containerRef, contentRef };

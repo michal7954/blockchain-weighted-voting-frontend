@@ -12,10 +12,6 @@ export default function useVotingResults(
     const contract = useContract();
 
     const storeResults = useCallback((results: VotingResults) => {
-        // const readableResults = Object.fromEntries(
-        //     results.map((result) => [result[0], result[1].toBigInt()])
-        // );
-        // console.info("Voting results:", readableResults);
         setResults(results.map((result) => result[1].toBigInt()));
     }, []);
 
